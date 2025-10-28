@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClickSmart - Gestión de Redes Sociales para Negocios Locales</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#ec4899',
+                        accent: '#06b6d4',
+                        dark: '#1e293b'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #6366f1 0%, #ec4899 50%, #06b6d4 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .floating-animation {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .stats-counter {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #6366f1;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-md shadow-lg z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center">
+                        <i class="fas fa-mouse-pointer text-white text-lg"></i>
+                    </div>
+                    <span class="text-2xl font-bold text-dark">CyberNetIA</span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#inicio" class="text-gray-700 hover:text-primary transition-colors">Inicio</a>
+                    <a href="#servicios" class="text-gray-700 hover:text-primary transition-colors">Servicios</a>
+                    <a href="#sobre-nosotros" class="text-gray-700 hover:text-primary transition-colors">Nosotros</a>
+                    <a href="#portfolio" class="text-gray-700 hover:text-primary transition-colors">Portfolio</a>
+                    <a href="#contacto" class="text-gray-700 hover:text-primary transition-colors">Contacto</a>
+                </div>
+                
+                <button class="md:hidden" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-2xl text-dark"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white border-t" id="mobile-menu">
+            <div class="px-4 py-4 space-y-4">
+                <a href="#inicio" class="block text-gray-700 hover:text-primary">Inicio</a>
+                <a href="#servicios" class="block text-gray-700 hover:text-primary">Servicios</a>
+                <a href="#sobre-nosotros" class="block text-gray-700 hover:text-primary">Nosotros</a>
+                <a href="#portfolio" class="block text-gray-700 hover:text-primary">Portfolio</a>
+                <a href="#contacto" class="block text-gray-700 hover:text-primary">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 gradient-bg opacity-10"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="fade-in">
+                <h1 class="text-5xl md:text-7xl font-bold text-dark mb-6">
+                    Impulsa tu <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Negocio Local</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                    Transformamos la presencia digital de tu negocio con estrategias de redes sociales que generan resultados reales
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button class="bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300">
+                        Comenzar Ahora
+                    </button>
+                    <button class="border-2 border-primary text-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-primary hover:text-white transition-all duration-300">
+                        Ver Portfolio
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Hero Image -->
+        <div class="absolute right-0 top-1/2 transform -translate-y-1/2 floating-animation hidden lg:block">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a03ab454-c8eb-4614-8a60-5beb99ef59e3.png" alt="Modern digital marketing workspace with multiple social media dashboards on computer screens, smartphones displaying various social platforms, and creative marketing materials scattered on a clean white desk" class="w-96 h-64 object-cover rounded-lg shadow-2xl" />
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+                <div class="fade-in">
+                    <div class="stats-counter" data-target="150">0</div>
+                    <p class="text-gray-600 text-lg">Clientes Satisfechos</p>
+                </div>
+                <div class="fade-in">
+                    <div class="stats-counter" data-target="500">0</div>
+                    <p class="text-gray-600 text-lg">Campañas Exitosas</p>
+                </div>
+                <div class="fade-in">
+                    <div class="stats-counter" data-target="95">0</div>
+                    <p class="text-gray-600 text-lg">% Satisfacción</p>
+                </div>
+                <div class="fade-in">
+                    <div class="stats-counter" data-target="24">0</div>
+                    <p class="text-gray-600 text-lg">Meses de Experiencia</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold text-dark mb-6">Nuestros Servicios</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Ofrecemos soluciones completas de marketing digital diseñadas específicamente para negocios locales
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover fade-in">
+                    <div class="w-16 h-16 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-share-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-dark mb-4">Gestión de Redes Sociales</h3>
+                    <p class="text-gray-600 mb-6">Administramos tus perfiles en Facebook, Instagram, Twitter y LinkedIn con contenido atractivo y estratégico.</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Publicaciones diarias</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Diseño de contenido</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Interacción con seguidores</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover fade-in">
+                    <div class="w-16 h-16 bg-gradient-to-r from-secondary to-accent rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-bullhorn text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-dark mb-4">Publicidad Digital</h3>
+                    <p class="text-gray-600 mb-6">Campañas publicitarias optimizadas en Facebook Ads, Instagram Ads y Google Ads para maximizar tu ROI.</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Segmentación precisa</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Optimización continua</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Reportes detallados</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover fade-in">
+                    <div class="w-16 h-16 bg-gradient-to-r from-accent to-primary rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-dark mb-4">Análisis y Reportes</h3>
+                    <p class="text-gray-600 mb-6">Seguimiento detallado del rendimiento de tus redes sociales con métricas claras y actionables.</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Métricas en tiempo real</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Informes mensuales</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Recomendaciones estratégicas</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover fade-in">
+                    <div class="w-16 h-16 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-camera text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-dark mb-4">Creación de Contenido</h3>
+                    <p class="text-gray-600 mb-6">Diseñamos contenido visual atractivo, desde posts hasta stories y videos promocionales.</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Diseño gráfico</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Videos cortos</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Fotografía de productos</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover fade-in">
+                    <div class="w-16 h-16 bg-gradient-to-r from-secondary to-accent rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-users text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-dark mb-4">Community Management</h3>
+                    <p class="text-gray-600 mb-6">Construimos y gestionamos comunidades leales alrededor de tu marca local.</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Respuesta a comentarios</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Gestión de crisis</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Engagement estratégico</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover fade-in">
+                    <div class="w-16 h-16 bg-gradient-to-r from-accent to-primary rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-rocket text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-dark mb-4">Estrategia Digital</h3>
+                    <p class="text-gray-600 mb-6">Desarrollamos estrategias personalizadas que se alinean con los objetivos de tu negocio.</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Análisis de competencia</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Planificación mensual</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Optimización continua</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre-nosotros" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8999e3c1-257e-4e72-a601-501147eb8e2c.png" alt="Modern office space with a diverse team of young professionals working on laptops and discussing social media strategies around a conference table with digital marketing charts and colorful sticky notes on glass walls" class="rounded-2xl shadow-lg" />
+                </div>
+                <div class="fade-in">
+                    <h2 class="text-4xl md:text-5xl font-bold text-dark mb-6">¿Por qué elegir CyberNetIA?</h2>
+                    <p class="text-xl text-gray-600 mb-8">
+                        Somos especialistas en marketing digital para negocios locales. Entendemos los desafíos únicos que enfrentan las empresas de tu comunidad.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-map-marker-alt text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-dark mb-2">Enfoque Local</h3>
+                                <p class="text-gray-600">Conocemos tu mercado local y sabemos cómo conectar con tu audiencia específica.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-trophy text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-dark mb-2">Resultados Comprobados</h3>
+                                <p class="text-gray-600">Más de 150 negocios locales han crecido significativamente con nuestras estrategias.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-accent rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-handshake text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-dark mb-2">Atención Personalizada</h3>
+                                <p class="text-gray-600">Cada cliente recibe un plan personalizado y atención directa de nuestro equipo.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold text-dark mb-6">Casos de Éxito</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Descubre cómo hemos ayudado a negocios locales a alcanzar sus objetivos digitales
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/144953be-dc4e-44a8-8fc5-c1a8217579fb.png" alt="Cozy local coffee shop interior with rustic wooden tables, warm lighting, and customers enjoying coffee while working on laptops" class="w-full h-48 object-cover" />
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-2">Centro Estetico "Skin Peeling"</h3>
+                        <p class="text-gray-600 mb-4">Aumentamos su engagement en un 300% y las ventas en un 45% en solo 3 meses.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-primary font-semibold">+300% Engagement</span>
+                            <span class="text-secondary font-semibold">+45% Ventas</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/35cad5af-7ea4-43ed-9f13-7cb010d9e5fb.png" alt="Modern dental clinic reception area with clean white furniture, plants, and a professional welcoming atmosphere" class="w-full h-48 object-cover" />
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-2">Supermarket Family</h3>
+                        <p class="text-gray-600 mb-4">Incrementamos sus citas en un 60% mediante estrategias de contenido educativo.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-primary font-semibold">+60% Citas</span>
+                            <span class="text-secondary font-semibold">+25% Seguidores</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6559bc05-b613-423f-9013-17a4c2f2349b.png" alt="Trendy clothing boutique with colorful garments displayed on modern racks, good lighting, and a stylish shopping environment" class="w-full h-48 object-cover" />
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-2">Cyber "Multiservice ClickZone"</h3>
+                        <p class="text-gray-600 mb-4">Duplicamos sus ventas online y expandimos su alcance a toda la región.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-primary font-semibold">+100% Ventas</span>
+                            <span class="text-secondary font-semibold">+80% Alcance</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6559bc05-b613-423f-9013-17a4c2f2349b.png" alt="Trendy clothing boutique with colorful garments displayed on modern racks, good lighting, and a stylish shopping environment" class="w-full h-48 object-cover" />
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-2">Servicios Contables "ServiAsesoria"</h3>
+                        <p class="text-gray-600 mb-4">Duplicamos sus ventas online y expandimos su alcance a toda la región.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-primary font-semibold">+100% Ventas</span>
+                            <span class="text-secondary font-semibold">+80% Alcance</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold text-dark mb-6">Lo que dicen nuestros clientes</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-lg fade-in">
+                    <div class="flex items-center mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5775cb90-18e0-47e1-bdf0-8bc83478d48d.png" alt="Professional headshot of Maria Rodriguez, a middle-aged Latina woman with a warm smile wearing business attire" class="w-12 h-12 rounded-full mr-4" />
+                        <div>
+                            <h4 class="font-semibold text-dark">María Rodríguez</h4>
+                            <p class="text-gray-600 text-sm">Propietaria - Café Aroma</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"ClickSmart transformó completamente mi negocio. Ahora tengo clientes que vienen específicamente por lo que ven en nuestras redes sociales."</p>
+                    <div class="flex text-yellow-400 mt-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-lg fade-in">
+                    <div class="flex items-center mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e0953ce9-3e0d-43b0-b128-501d67cd26fd.png" alt="Professional headshot of Dr. Carlos Martinez, a middle-aged Hispanic man in a white medical coat with a confident expression" class="w-12 h-12 rounded-full mr-4" />
+                        <div>
+                            <h4 class="font-semibold text-dark">Dr. Carlos Martínez</h4>
+                            <p class="text-gray-600 text-sm">Director - Clínica Sonrisas</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"El equipo de ClickSmart entiende perfectamente el mercado local. Nuestras citas aumentaron significativamente desde que trabajamos con ellos."</p>
+                    <div class="flex text-yellow-400 mt-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-lg fade-in">
+                    <div class="flex items-center mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/0dfc2328-5c1b-4ff6-8644-c04e7ab6bcb3.png" alt="Professional headshot of Ana Gutierrez, a young Latina entrepreneur with modern styling and a bright smile" class="w-12 h-12 rounded-full mr-4" />
+                        <div>
+                            <h4 class="font-semibold text-dark">Ana Gutiérrez</h4>
+                            <p class="text-gray-600 text-sm">Fundadora - Estilo Único</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Profesionales, creativos y con resultados reales. ClickSmart es la mejor inversión que he hecho para mi boutique."</p>
+                    <div class="flex text-yellow-400 mt-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="fade-in">
+                    <h2 class="text-4xl md:text-5xl font-bold text-dark mb-6">¿Listo para hacer crecer tu negocio?</h2>
+                    <p class="text-xl text-gray-600 mb-8">
+                        Conversemos sobre cómo podemos impulsar tu presencia digital y generar más clientes para tu negocio local.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
+                                <i class="fas fa-phone text-white"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-dark">Teléfono</p>
+                                <p class="text-gray-600">+593 (098 218 9949)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-dark">Email</p>
+                                <p class="text-gray-600">hola@clicksmart.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center">
+                                <i class="fas fa-map-marker-alt text-white"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-dark">Ubicación</p>
+                                <p class="text-gray-600">Francisco de Orellana, El Coca</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <p class="font-semibold text-dark mb-4">Síguenos en redes sociales:</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center text-white hover:shadow-lg transition-all duration-300">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-gradient-to-r from-secondary to-accent rounded-full flex items-center justify-center text-white hover:shadow-lg transition-all duration-300">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-gradient-to-r from-accent to-primary rounded-full flex items-center justify-center text-white hover:shadow-lg transition-all duration-300">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center text-white hover:shadow-lg transition-all duration-300">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-lg fade-in">
+                    <form class="space-y-6">
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Nombre</label>
+                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300" placeholder="Tu nombre completo">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Email</label>
+                            <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300" placeholder="tu@email.com">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Teléfono</label>
+                            <input type="tel" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300" placeholder="Tu número de teléfono">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Tipo de Negocio</label>
+                            <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300">
+                                <option>Selecciona tu tipo de negocio</option>
+                                <option>Restaurante/Café</option>
+                                <option>Clínica/Consultorio</option>
+                                <option>Retail/Boutique</option>
+                                <option>Servicios</option>
+                                <option>Otro</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Mensaje</label>
+                            <textarea rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300" placeholder="Cuéntanos sobre tu negocio y objetivos"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-gradient-to-r from-primary to-secondary text-white py-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300">
+                            Solicitar Consulta Gratuita
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center">
+                            <i class="fas fa-mouse-pointer text-white text-lg"></i>
+                        </div>
+                        <span class="text-2xl font-bold">ClickSmart</span>
+                    </div>
+                    <p class="text-gray-400">Transformando negocios locales a través del marketing digital inteligente.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Servicios</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>Gestión de Redes Sociales</li>
+                        <li>Publicidad Digital</li>
+                        <li>Creación de Contenido</li>
+                        <li>Community Management</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Empresa</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>Sobre Nosotros</li>
+                        <li>Portfolio</li>
+                        <li>Blog</li>
+                        <li>Contacto</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Contacto</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>+593 (098 218 9949)</li>
+                        <li>hola@clicksmart.com</li>
+                        <li>Francisco de Orellana, El Coca</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2024 ClickSmart. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Navbar background change on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('bg-white/95');
+                navbar.classList.remove('bg-white/90');
+            } else {
+                navbar.classList.add('bg-white/90');
+                navbar.classList.remove('bg-white/95');
+            }
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Counter animation
+        const counters = document.querySelectorAll('.stats-counter');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    const increment = target / 100;
+                    let current = 0;
+                    
+                    const updateCounter = () => {
+                        if (current < target) {
+                            current += increment;
+                            counter.textContent = Math.ceil(current);
+                            setTimeout(updateCounter, 20);
+                        } else {
+                            counter.textContent = target;
+                        }
+                    };
+                    
+                    updateCounter();
+                    counterObserver.unobserve(counter);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => {
+            counterObserver.observe(counter);
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.');
+        });
+
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+</html>
+
